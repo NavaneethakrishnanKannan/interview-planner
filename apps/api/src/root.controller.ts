@@ -9,7 +9,10 @@ export class RootController {
   welcome() {
     return {
       service: 'Interview Planner API',
-      message: 'API routes live under /api (e.g. GET /api/hello, POST /api/auth/login).',
+      message:
+        'This deployment is the JSON API only. The website is the Next.js app in apps/web — deploy that folder as a separate Vercel project and set NEXT_PUBLIC_API_BASE_URL to this origin + /api.',
+      api: '/api',
+      example: 'GET /api/hello',
       health: '/health',
     };
   }
