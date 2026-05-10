@@ -9,6 +9,9 @@ import { InterviewsModule } from './interviews/interviews.module';
 import { NotesModule } from './notes/notes.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { QuestionsModule } from './questions/questions.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { RootController } from './root.controller';
 
 function monorepoRootEnvPath(): string {
   const fromDistSrc = resolve(__dirname, '..', '..', '..', '..', '.env');
@@ -35,5 +38,7 @@ function monorepoRootEnvPath(): string {
     InterviewsModule,
     NotesModule,
   ],
+  controllers: [RootController, AppController],
+  providers: [AppService],
 })
 export class AppModule {}
