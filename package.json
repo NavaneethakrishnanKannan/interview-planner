@@ -1,0 +1,38 @@
+{
+  "name": "ai-interview-platform",
+  "version": "1.0.0",
+  "description": "AI-powered interview simulator monorepo",
+  "scripts": {
+    "dev": "npm run dev:web",
+    "dev:stack": "npx --yes concurrently -k -n api,web -c yellow,cyan \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:web": "npm run dev -w apps/web",
+    "dev:api": "npm run start:dev -w apps/api",
+    "build": "npm run build -w apps/web && npm run build -w apps/api",
+    "lint": "npm run lint -w apps/web && npm run lint -w apps/api",
+    "prisma:generate": "npm run prisma:generate -w apps/api",
+    "prisma:migrate": "npm run prisma:migrate -w apps/api",
+    "prisma:push": "npm run prisma:push -w apps/api",
+    "prisma:deploy": "npm run prisma:deploy -w apps/api",
+    "prisma:resolve": "npm run prisma:resolve -w apps/api --",
+    "prisma:resolve:baseline": "npm run prisma:resolve:baseline -w apps/api",
+    "prisma:status": "npm run prisma:status -w apps/api",
+    "seed": "npm run seed -w apps/api"
+  },
+  "keywords": [
+    "nextjs",
+    "nestjs",
+    "interview-prep",
+    "ai"
+  ],
+  "author": "AI Interview Platform",
+  "license": "MIT",
+  "type": "commonjs",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
